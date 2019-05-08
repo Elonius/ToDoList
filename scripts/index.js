@@ -24,7 +24,7 @@
 		let btnDown = document.querySelector("#btnDown");
 		btnDown.addEventListener("click", goDown);
 
-		document.querySelector("#btnClear").addEventListener("click", ClearStorage);
+		//document.querySelector("#btnClear").addEventListener("click", ClearStorage);
 
 		document.querySelector("#content ul").addEventListener("click", handleClick);
 		document.querySelector("#content ul").addEventListener("dblclick", handleDblClick);
@@ -205,9 +205,9 @@
 		});
 	}
 
-	function ClearStorage() {
-		localStorage.clear();
-	}
+	//function ClearStorage() {
+	//	localStorage.clear();
+	//}
 
 	function SaveList() {
 		window.localStorage.setItem("todoList", JSON.stringify(taskList));
