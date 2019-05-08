@@ -38,11 +38,16 @@
 		window.todoList = [];
 		window.index;
 
+		// Setting title of app
+		storage.setItem("title", "Shawn's ToDo List");
+		let title = storage.getItem("title");
+		document.querySelector("#title").innerHTML = title;
+
 		if (localStorage.length === 0) {
 			window.localStorage.setItem("todoList", JSON.stringify(todoList));
 		}
 		window.taskList = JSON.parse(window.localStorage.getItem("todoList"));
-		
+
 		DisplayList();
 	};
 
@@ -78,6 +83,7 @@
 
 	function onPrompt(results) {
 		if (results.input1 !== "") {
+			// Adds inputted text into the array as an object
 			taskList.push({
 				key: results.input1,
 				completed: false
@@ -126,7 +132,7 @@
 		let liTag = document.querySelectorAll("#content ul li");
 
 		for (var i = 0, count = liTag.length; i < count; i++) {
-			if (liTag[i].classList.contains("complete")) { //  || taskList[i].completed === true) 
+			if (liTag[i].classList.contains("complete")) {
 				taskList[i].completed = true;
 			}
 			else {
@@ -143,17 +149,15 @@
 		for (let i = 0, count = liTag.length; i < count; i++) {
 			liTag[i].classList.remove("highlight");
 		}
-
 	}
 
+	// TODO: Combine goUp/goDown functions into one function
 	function goUp() {
-		//debugger
 		let liTag = document.querySelectorAll("#content ul li");
 
 		for (let i = 0, count = liTag.length; i < count; i++) {
 			if (liTag[i].classList.contains("highlight")) {
-				//liTag[i].parentNode.insertBefore(liTag[i], liTag[i].previousElementSibling);
-				//taskList[i].parentNode.insertBefore(taskList[i], taskList[i].previousElementSibling);
+				// Swaps highlighted task with task above it
 				[taskList[i - 1], taskList[i]] = [taskList[i], taskList[i - 1]];
 				if (liTag[i].previousElementSibling == null) {
 					btnUp.setAttribute("disabled", "disabled");
@@ -172,7 +176,7 @@
 
 		for (var i = 0, count = liTag.length; i < count; i++) {
 			if (liTag[i].classList.contains("highlight")) {
-				//liTag[i].parentNode.insertBefore(liTag[i].nextElementSibling, liTag[i]);
+				// Swaps highlighted task with task below it
 				[taskList[i + 1], taskList[i]] = [taskList[i], taskList[i + 1]];
 				if (liTag[i].nextElementSibling == null) {
 					btnDown.setAttribute("disabled", "disabled");
@@ -186,6 +190,7 @@
 		DisplayList();
 	}
 
+	// TODO: Make this a loop
 	function DisableBtns(word) {
 		if (word === "all") {
 			btnDelete.setAttribute("disabled", "disabled");
@@ -213,6 +218,7 @@
 		window.localStorage.setItem("todoList", JSON.stringify(taskList));
 	}
 
+	// Checks if highlighted task should disable goUp/goDown buttons
 	function CheckSiblings(target) {
 		if (target.previousElementSibling == null) {
 			btnUp.setAttribute("disabled", "disabled");
