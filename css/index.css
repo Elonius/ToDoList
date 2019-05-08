@@ -1,0 +1,65 @@
+body {
+	background-attachment: fixed;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	font-family: 'RobotoRegular', 'Droid Sans', 'Segoe UI', Segoe, 'San Francisco', 'Helvetica Neue', Helvetica, Arial, Geneva, sans-serif;
+	background-color: #ffeecc;
+	color: #262626;
+}
+
+h1 {
+	font-size: 1.5em;
+	border-bottom: thin solid black;
+	padding: 8px;
+	margin: 0;
+	background-color: #88ff4d;
+}
+
+.app {
+	text-align: center;
+}
+
+button {
+	margin: 5px;
+	padding: 7px 13px 7px 13px;
+	font-size: 16px;
+	font-weight: 600;
+	background-color: #88ff4d;
+	border: 2px solid #262626;
+	border-radius: 4px;
+}
+
+.btnEnable {
+	background-color: #4ce600;
+}
+
+#content {
+	font-size: 1.2em;
+	width: 90%;
+	overflow-wrap: break-word;
+}
+
+.highlight {
+	background-color: #99ff66;
+}
+
+.complete {
+	text-decoration: line-through;
+}
+
+ul {
+	font-weight: 600;
+	line-height: 140%;
+}
+
+li {
+	border-bottom: thin solid black;
+	list-style-type: circle;
+	margin: 6px;
+}
+
+#btnUp {
+	font-size: 16px;
+}
